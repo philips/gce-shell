@@ -74,7 +74,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, `usage: gce-shell -z <zone> -p <project> -i <instance>
+	fmt.Fprintf(os.Stderr, `usage: gce-shell -z <zone> -p <project> -i <instance> -s <secret>
 
 Commands:
 	start
@@ -89,6 +89,10 @@ Commands:
 func server() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "hello world")
+		fmt.Fprintln(w, "secret: %s", secret)
+		fmt.Fprintln(w, "project: %s", project)
+		fmt.Fprintln(w, "zone: %s", zone)
+		fmt.Fprintln(w, "instance: %s", instance)
 	})
 
 	port := os.Getenv("PORT")

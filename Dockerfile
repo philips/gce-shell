@@ -12,4 +12,6 @@ RUN go install -v ./
 # Now copy it into our base image.
 FROM gcr.io/distroless/base
 COPY --from=build /go/bin/gce-shell /
-CMD ["/gce-shell", "server"]
+COPY --from=build /go/src/github.com/philips/gce-shell/gce-shell-server
+
+CMD ["/gce-shell-server"]
