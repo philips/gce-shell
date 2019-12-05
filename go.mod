@@ -1,4 +1,4 @@
-module github.com/philips/gce-shell-on
+module github.com/philips/gce-shell
 
 go 1.13
 
