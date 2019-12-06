@@ -10,7 +10,7 @@ ENV GOFLAGS=-mod=vendor
 RUN go install -v ./
 
 # Now copy it into our base image.
-FROM gcr.io/distroless/base
+FROM gcr.io/distroless/base:debug
 COPY --from=build /go/bin/gce-shell /
 COPY --from=build /go/src/github.com/philips/gce-shell/gce-shell-server /
 

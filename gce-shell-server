@@ -4,4 +4,6 @@
 # I have been burnt too many times by trying to have a levels
 # of overrides (sorry etcd community)
 
+export PATH=$PATH:/
+
 gce-shell server -z ${GCE_SHELL_ZONE} -p ${GCE_SHELL_PROJECT} -i ${GCE_SHELL_INSTANCE} -s ${GCE_SHELL_SECRET}
